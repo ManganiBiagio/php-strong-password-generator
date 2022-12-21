@@ -3,7 +3,12 @@ require "./functions.php";
 
 session_start();
 $lengthPsw = $_GET['lengthPsw'];
-$psw = generatePsw($lengthPsw);
+$isCharMin=$_GET['isCharMin'];
+$isCharMax=$_GET['isCharMax'];
+$isNumeri=$_GET['isNumeri'];
+$isCharSpe=$_GET['isCharSpe'];
+$isRepetition=$_GET['isRepetition'];
+$psw = generatePsw($lengthPsw,$isCharMin,$isCharMax,$isNumeri,$isCharSpe,$isRepetition);
 if(!empty($psw)){
     $_SESSION["psw"]=$psw;
     header("Location: showpsw.php");
@@ -40,9 +45,33 @@ if(!empty($psw)){
 
                     <div class="col-auto">
                         <div class="form-check">
-                            <input class="form-check-input " name="isParcheggio" type="checkbox" id="autoSizingCheck2">
+                            <input class="form-check-input " name="isCharMin" type="checkbox" id="autoSizingCheck2">
                             <label class="form-check-label" for="autoSizingCheck2">
-                                Parcheggio
+                                Lettere Minuscole
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input " name="isCharMax" type="checkbox" id="autoSizingCheck2">
+                            <label class="form-check-label" for="autoSizingCheck2">
+                                Lettere Maiuscole
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input " name="isNumeri" type="checkbox" id="autoSizingCheck2">
+                            <label class="form-check-label" for="autoSizingCheck2">
+                                Numeri
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input " name="isCharSpe" type="checkbox" id="autoSizingCheck2">
+                            <label class="form-check-label" for="autoSizingCheck2">
+                                Caratteri Speciali
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input " name="isRepetition" type="checkbox" id="autoSizingCheck2">
+                            <label class="form-check-label" for="autoSizingCheck2">
+                                Niente Ripetizioni
                             </label>
                         </div>
                     </div>
