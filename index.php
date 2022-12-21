@@ -1,8 +1,13 @@
 <?php
 require "./functions.php";
 
+session_start();
 $lengthPsw = $_GET['lengthPsw'];
 $psw = generatePsw($lengthPsw);
+if(!empty($psw)){
+    $_SESSION["psw"]=$psw;
+    header("Location: showpsw.php");
+}
 
 ?>
 
