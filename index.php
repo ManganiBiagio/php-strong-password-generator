@@ -1,5 +1,7 @@
-<php?
+<?php
 
+$lengthPsw=$_GET['lengthPsw'];
+var_dump($lengthPsw);
 
 
 
@@ -18,7 +20,35 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    prova
+    <div class="container">
+        <div class="text-center mb-3">
+            <h1>Password Generator</h1>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-12">
+            <form method="GET" class="row gx-3 gy-2 align-items-center justify-content-center">
+                    <div class="col-sm-3 d-flex align-items-center">
+                        <label class="me-2">Lunghezza password:</label>
+                        <input type="number" class="form-control" name="lengthPsw" id="specificSizeInputName" placeholder="..." >
+                    </div>
+
+
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input " name="isParcheggio" type="checkbox" id="autoSizingCheck2"  >
+                            <label class="form-check-label" for="autoSizingCheck2">
+                                Parcheggio
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-primary">Cerca</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
