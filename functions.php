@@ -12,9 +12,12 @@ function generatePsw($lengthPsw,$isCharMin,$isCharMax,$isNumeri,$isCharSpe,$isRe
     $allChar = $charMaiuscList . $charMinList . $numberList . $simbolList;
     $toReturn = "";
     
-        if(isset($isRepetition)){
+        if(isset($isRepetition) ){
             $i=0;
             while ( $i < $lengthPsw){
+                if($i===strlen($allChar)){
+                    break;
+                }
                 $char=$allChar[rand(0, strlen($allChar) - 1)];
                 if(!str_contains($toReturn,$char)){
                     $toReturn .= $char;
